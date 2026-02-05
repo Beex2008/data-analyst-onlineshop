@@ -1,0 +1,35 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {section}{\numberline {1}Einleitung}{7}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Motivation und Zielsetzung des Projekts}{7}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Ausgangssituation und Hintergrund der Daten}{7}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Geschäftlicher Hintergrund (Online-Shop \& Kaufabschlüsse)}{7}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Projektabgrenzung und Fokus der Analyse}{7}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Hypothese H1: Zusammenhang zwischen Produktinteraktion und Kaufabschluss}{7}{subsection.1.5}%
+\contentsline {section}{\numberline {2}Projektvorbereitung}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Projektmanagement}{8}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Organisation und Kommunikation}{8}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Projektmanagementmethode und Arbeitsteilung}{8}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Ist-Analyse}{8}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Geschäftsszenario}{8}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}IT-Infrastruktur}{8}{subsubsection.2.2.2}%
+\contentsline {section}{\numberline {3}Erhebung und Analyse}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Bedarfsanalyse}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Prozessanalyse (KNIME)}{9}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Datenaufbereitung und Datenqualität}{9}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Spaltenumbenennen}{10}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}EDA}{12}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Modellierung und Vorhersage}{13}{subsubsection.3.2.4}%
+\contentsline {section}{\numberline {4}Visualisierung und Reporting (Power BI)}{15}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Datenübergabe von KNIME an Power BI}{15}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Definition der Business-KPIs}{15}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Dashboard-Design und Visualisierungen}{15}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Interpretation der Ergebnisse für Fachabteilungen}{15}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Management-Mehrwert durch datenbasierte Entscheidungen}{15}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Soll-Zustand}{16}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Zielbild der datengetriebenen Kaufvorhersage}{16}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Integration des Modells in Geschäftsprozesse}{16}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Nutzen für Marketing und Shop-Optimierung}{16}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Grenzen des Modells und Risiken}{16}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Ausblick}{17}{section.6}%
+\contentsline {section}{\numberline {7}Anhang}{18}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Projektmanagement}{18}{subsection.7.1}%

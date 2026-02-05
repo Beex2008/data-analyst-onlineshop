@@ -1,0 +1,16 @@
+\section{Modellierung und Vorhersage}
+Für die Modellierung wurde bewusst ein begrenztes Feature-Set gewählt. Ziel war es nicht, möglichst viele Variablen zu verwenden, sondern diejenigen, die fachlich sinnvoll begründet und gut interpretierbar sind.
+Im finalen Feature-Set enthalten sind:
+\begin{itemize}
+	\item \texttt{product\_page\_count} als zentrales Hypothesenmerkmal
+	\item \texttt{product\_share} als Verstärkung des Produktfokus
+	\item \texttt{product\_page\_duration} als Maß für Engagement
+	\item \texttt{page\_value} als kaufnahe Metrik
+	\item \texttt{total\_duration} zur Abbildung der Sessionintensität
+	\item kodierte Kontextvariablen wie Monat, Besuchertyp und Wochenende
+\end{itemize}
+
+\subsection{Modellierung}
+Für die Modellierung wurde das Gradient Boosting-Modell verwendet. 
+\subsection{Vorhersage}
+Die Vorhersage wurde mithilfe des trainierten Modells durchgeführt. Die Vorhersage wurde mithilfe der predict-Methode des Modells durchgeführt.

@@ -1,0 +1,101 @@
+% 'draft' mode can be used to speed up compilation
+\documentclass[twoside,final]{Phenikaa-report}
+\usepackage{codespace}
+
+% Draft watermark
+% https://github.com/callegar/LaTeX-draftwatermark
+
+% Encodings
+\usepackage{gensymb,textcomp}
+
+% Better tables
+% Wide tables go to https://tex.stackexchange.com/q/332902
+\usepackage{array,longtable,multicol,multirow,siunitx,tabularx}
+
+% Better enum
+\usepackage{enumitem}
+
+% Graphics
+\usepackage{caption,float}
+
+% Add options for figures, like max width, framing, etc.
+\usepackage[export]{adjustbox}
+
+% References
+% Use \Cref{} instead of \ref{}
+\usepackage[ngerman,nameinlink]{cleveref}
+
+% FOR DEMONSTRATION PURPOSES, REMOVE IN PRODUCTION
+\usepackage{mwe}
+
+% Sub-preambles
+% https://github.com/MartinScharrer/standalone
+
+% Configurations
+\coursename{Online-Zertifikatslehrgang Data Analyst (IHK)}
+\reporttype{Abschlussbericht}
+\title{Einkaufsabschlüsse im Online-Shop}
+\advisor{Prüferin}
+\stuname{%
+  Atca \\
+  Koua \\
+  Dietrich \\
+}
+
+% Allow page breaks inside align* environment
+%\allowdisplaybreaks{}
+
+% Makes a lot of things blue, avoid at all costs
+%\everymath{\color{blue}}
+
+% Set depth of numbering for counters
+\AtBeginDocument{\counterwithin{lstlisting}{section}}
+
+% Rename some sections to German
+\AtBeginDocument{\renewcommand{\contentsname}{Inhaltsverzeichnis}}
+\AtBeginDocument{\renewcommand{\listfigurename}{Abbildungsverzeichnis}}
+\AtBeginDocument{\renewcommand{\listtablename}{Tabellenverzeichnis}}
+\AtBeginDocument{\renewcommand{\tablename}{Tabelle}}
+\AtBeginDocument{\renewcommand{\figurename}{Abbildung}}
+\AtBeginDocument{\renewcommand{\refname}{Literaturverzeichnis}}
+
+\begin{document}
+\coverpage%
+
+%\section*{Member list \& Workload}
+%\newcounter{memberrowno}
+%\setcounter{memberrowno}{0}
+%\begin{center}
+%  \begin{tabular}{>{\stepcounter{memberrowno}\thememberrowno}llcc}
+%    \toprule
+%    \multicolumn{1}{c}{\textbf{No.}} & \textbf{Full name} & \textbf{Student ID} & \textbf{Contribution} \\
+%    \midrule
+%                                     & h                  & xxxxxxx             & 100\%                       \\
+%                                     & h                  & xxxxxxx             & 100\%                       \\
+%    \bottomrule
+%  \end{tabular}
+%\end{center}
+%\clearpage
+
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+\lstlistoflistings{}
+
+% Hauptinhalt - Einbindung der Kapitel
+\include{chapters/einleitung}
+\include{chapters/projektvorbereitung}
+\include{chapters/ist-analyse}
+\include{chapters/visualisierung}
+\include{chapters/soll-zustand}
+\include{chapters/ausblick}
+\include{chapters/anhang}
+
+\bibliographystyle{plain}
+\bibliography{refs/example.bib}
+\nocite{*}
+
+\end{document}

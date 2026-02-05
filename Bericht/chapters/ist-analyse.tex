@@ -1,0 +1,107 @@
+\section{Erhebung und Analyse}
+
+\subsection{Bedarfsanalyse}
+% Hier den Text für Bedarfsanalyse einfügen
+
+\subsection{Prozessanalyse (KNIME)}
+
+\subsubsection{Datenaufbereitung und Datenqualität}
+% Hier den Text für Datenaufbereitung und Datenqualität einfügen
+
+\newpage
+\subsubsection{Spaltenumbenennen}
+Die Spalten des ursprünglichen Datensatzes wurden vor der weiteren Verarbeitung umbenannt. Der Datensatz enthält zwar technisch korrekte Bezeichnungen, diese sind jedoch teilweise uneinheitlich und erschweren sowohl die Lesbarkeit als auch die spätere Dokumentation.
+Aus diesem Grund wurde eine einheitliche Benennung nach dem Schema \texttt{snake\_case}\footnote{\url{https://developer.mozilla.org/de/docs/Glossary/Snake_case}} eingeführt. Dadurch lassen sich die Spalten leichter interpretieren, konsistent weiterverarbeiten und eindeutig im Bericht sowie im Dashboard referenzieren.
+Zusätzlich wurde darauf geachtet, dass ähnliche Inhalte ein gleiches Namensmuster erhalten, um Zusammenhänge direkt erkennbar zu machen.
+Beispiele:
+\begin{itemize}
+	\item Spalten mit Seitenanzahlen enden auf \texttt{\_page\_count}
+	\item Spalten mit Zeitangaben enden auf \texttt{\_page\_duration}
+	\item Boolesche Merkmale erhalten das Suffix \texttt{\_flag}
+\end{itemize}
+
+Diese Standardisierung reduziert Fehler im Workflow, erleichtert die Wartung und ist insbesondere für die Weiterverarbeitung in Power BI von Vorteil.
+Die vollständige Übersicht aller Umbenennungen ist in Tabelle~\ref{tab:spaltenumbenennung} dargestellt:
+
+\begin{longtable}{p{4cm}p{4.5cm}p{6.5cm}}
+\caption{Spaltenumbenennungen der CSV-Daten}\label{tab:spaltenumbenennung} \\
+\toprule
+\textbf{Original CSV-Spalte} & \textbf{Neuer Spaltenname} & \textbf{Begründung} \\
+\midrule
+\endfirsthead
+\caption{Spaltenumbenennungen der CSV-Daten (Fortsetzung)} \\
+\toprule
+\textbf{Original CSV-Spalte} & \textbf{Neuer Spaltenname} & \textbf{Begründung} \\
+\midrule
+\endhead
+\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- Fortsetzung}} \\
+\toprule
+\textbf{Original CSV-Spalte} & \textbf{Neuer Spaltenname} & \textbf{Begründung} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+Administrative & \texttt{admin\_page\_count} & Einheitliche Benennung für Seitenanzahlen (\_page\_count), beschreibt die Anzahl administrativer Seitenaufrufe pro Session. \\
+Administrative\_Duration & \texttt{admin\_page\_duration} & Einheitliche Benennung für Zeitangaben (\_page\_duration), gibt die Verweildauer auf administrativen Seiten an. \\
+Informational & \texttt{info\_page\_count} & Vereinheitlichung der Seitenkategorien, beschreibt die Anzahl besuchter Informationsseiten. \\
+Informational\_Duration & \texttt{info\_page\_duration} & Klare Trennung zwischen Seitenanzahl und Verweildauer auf Informationsseiten. \\
+ProductRelated & \texttt{product\_page\_count} & Zentrale Variable zur Überprüfung der Hypothese H1, da Produktseiten unmittelbar mit Kaufentscheidungen zusammenhängen. \\
+ProductRelated\_Duration & \texttt{product\_page\_duration} & Ergänzt product\_page\_count um die zeitliche Intensität der Produktbetrachtung. \\
+BounceRates & \texttt{bounce\_rate} & Vereinfachter Name für eine bekannte Google-Analytics-Metrik, beschreibt Absprungraten pro Seite. \\
+ExitRates & \texttt{exit\_rate} & Vereinfachter, einheitlicher Name für eine weitere Google-Analytics-Metrik, beschreibt Ausstiegsraten. \\
+PageValues & \texttt{page\_value} & Kürzere, besser interpretierbare Bezeichnung für den monetären Wert einer Seite vor einem Kauf. \\
+SpecialDay & \texttt{special\_day\_score} & Verdeutlicht, dass es sich um einen normierten Score (0--1) handelt, der die Nähe zu Aktionstagen abbildet. \\
+Month & \texttt{visit\_month} & Präzisiert die Bedeutung als Monat der Session, nicht als abstrakter Kalendermonat. \\
+OperatingSystems & \texttt{operating\_system\_id} & Technische Kontextvariable, numerische Kodierung zur Identifikation des Betriebssystems. \\
+Browser & \texttt{browser\_id} & Technische Kontextvariable, numerische Kodierung des verwendeten Browsers. \\
+Region & \texttt{region\_id} & Regionale Zuordnung des Nutzers, technisch als ID gespeichert. \\
+TrafficType & \texttt{traffic\_type\_id} & Kennzeichnet den Ursprung des Traffics (z. B. Direkt, Referral, Kampagne). \\
+VisitorType & \texttt{visitor\_type} & Beibehaltung der semantischen Bedeutung (``New'' / ``Returning''), nur sprachlich vereinheitlicht. \\
+Weekend & \texttt{weekend\_flag} & Boolean-Indikator, der klar als Ja/Nein-Merkmal erkennbar ist. \\
+Revenue & \texttt{revenue\_flag} & Kennzeichnet, ob ein Kauf stattgefunden hat (TRUE/FALSE); Umbenennung macht die Rolle als Zielvariable eindeutig. \\
+\end{longtable}
+
+\subsubsection{EDA}
+Die explorative Datenanalyse diente dazu, ein grundlegendes Verständnis der Daten zu gewinnen und die Hypothese H1 zu überprüfen.
+Untersucht wurden unter anderem:
+\begin{itemize}
+	\item Verteilung der Zielvariable (Kauf vs. kein Kauf)
+	\item Unterschiede im Nutzerverhalten zwischen Käufern und Nicht-Käufern
+	\item Zusammenhang zwischen Produktseiteninteraktionen und Kaufabschluss
+\end{itemize}
+
+Neben den ursprünglichen Spalten wurden zusätzliche Merkmale berechnet, um das Nutzerverhalten auf Session-Ebene besser zu beschreiben. Ziel war es, robuste Kennzahlen zu erzeugen, die unabhängig von der absoluten Sessionlänge interpretiert werden können und eine bessere Vergleichbarkeit zwischen verschiedenen Besuchersessions ermöglichen.
+Zunächst wurde die Gesamtanzahl aller Seiteninteraktionen pro Session berechnet (\texttt{total\_page\_count}). Diese Kennzahl beschreibt die allgemeine Aktivität eines Nutzers während einer Session und fasst alle besuchten Seitentypen zusammen.
+\begin{equation}
+\mathtt{total\_page\_count} = \mathtt{admin\_page\_count} + \mathtt{info\_page\_count} + \mathtt{product\_page\_count}
+\end{equation}
+Ergänzend dazu wurde die gesamte Verweildauer innerhalb der erfassten Seitenkategorien bestimmt (\texttt{total\_duration}). Diese Größe dient als Maß für die Dauer und Intensität der Session und berücksichtigt, wie viel Zeit ein Nutzer insgesamt im Shop verbracht hat.
+\begin{equation}
+\mathtt{total\_duration} = \mathtt{admin\_page\_duration} + \mathtt{info\_page\_duration} + \mathtt{product\_page\_duration}
+\end{equation}
+Auf Basis dieser beiden Kennzahlen wurde die durchschnittliche Verweildauer pro Seiteninteraktion berechnet (\texttt{avg\_time\_per\_page}). Diese Kennzahl ermöglicht es, zwischen kurzen, oberflächlichen Besuchen und intensiver Auseinandersetzung mit den Inhalten zu unterscheiden. Zur Vermeidung einer Division durch Null wurde der Nenner um eine Konstante ergänzt.
+\begin{equation}
+\mathtt{avg\_time\_per\_page} = \frac{\mathtt{total\_duration}}{\mathtt{total\_page\_count} + 1}
+\end{equation}
+Ein zentrales, hypothesengeleitetes Merkmal ist der Anteil der Produktseiten an allen Seiteninteraktionen (\texttt{product\_share}). Diese Kennzahl beschreibt, wie stark sich ein Nutzer innerhalb einer Session auf Produktseiten konzentriert hat. Dadurch wird nicht nur die absolute Anzahl der Produktseiten berücksichtigt, sondern auch deren Bedeutung im Verhältnis zur gesamten Session. 
+\begin{equation}
+\mathtt{product\_share} = \frac{\mathtt{product\_page\_count}}{\mathtt{total\_page\_count} + 1}
+\end{equation}
+Durch diese berechneten Merkmale wird das Nutzerverhalten differenzierter abgebildet. Insbesondere \texttt{product\_share} stellt ein zentrales Merkmal zur Überprüfung der Hypothese dar, dass eine stärkere Fokussierung auf Produktseiten mit einer höheren Wahrscheinlichkeit für einen Kaufabschluss einhergeht.
+
+\subsubsection{Modellierung und Vorhersage}
+Für die Modellierung wurde bewusst ein begrenztes Feature-Set gewählt. Ziel war es nicht, möglichst viele Variablen zu verwenden, sondern diejenigen, die fachlich sinnvoll begründet und gut interpretierbar sind.
+
+Im finalen Feature-Set enthalten sind:
+\begin{itemize}
+	\item \texttt{product\_page\_count} als zentrales Hypothesenmerkmal
+	\item \texttt{product\_share} als Verstärkung des Produktfokus
+	\item \texttt{product\_page\_duration} als Maß für Engagement
+	\item \texttt{page\_value} als kaufnahe Metrik
+	\item \texttt{total\_duration} zur Abbildung der Sessionintensität
+	\item kodierte Kontextvariablen wie Monat, Besuchertyp und Wochenende
+\end{itemize}
+
+Durch diese Auswahl bleibt das Modell übersichtlich, erklärbar und reduziert das Risiko von Überanpassung.
