@@ -117,14 +117,13 @@ Der Workflow ist modular aufgebaut:
 
 - **Gesamtdatensatz.csv** – finaler Feature-Datensatz  
 - **XGBoost_Modell.csv** – Predictions und Wahrscheinlichkeiten  
-
-Grundlage für die Power-BI-Visualisierung.
+- **Power BI** – ergibt ein **Dashboard** zur Visualisierung (basierend auf den obigen CSV-Exporten)
 
 ---
 
 ## Power BI
 
-Das Dashboard unterstützt:
+Der Output von Power BI ist ein **Dashboard**. Es unterstützt:
 
 - Analyse der Conversion Rate nach Segmenten  
 - Interpretation relevanter Features  
@@ -144,4 +143,3 @@ Das Dashboard unterstützt:
 ## Lizenz & Datenquelle
 
 Die Nutzung der Daten unterliegt den Bedingungen des [UCI Machine Learning Repository](https://archive.ics.uci.edu/).  
-Projektcode und Dokumentation siehe `LICENSE` in diesem Verzeichnis.
