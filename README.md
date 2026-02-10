@@ -1,18 +1,15 @@
 
 ---
 
-## Prerequisites (Voraussetzungen)
+## Prerequisites 
 
 Um dieses Projekt auszuführen, nachzuvollziehen oder weiterzuentwickeln, müssen folgende Voraussetzungen erfüllt sein.
 
 ### Software
-- KNIME Analytics Platform (Version ≥ 5.x empfohlen)
-  - KNIME XGBoost Integration
-  - KNIME Power BI Integration (optional)
-- Power BI Desktop (optional)
-- LaTeX-Distribution (optional, z. B. TeX Live oder MiKTeX)
+- KNIME Analytics Platform (Version ≥ 5.8.0)
+- Power BI Desktop
 
-### Daten
+### Datensatz
 - Zugriff auf das Originaldataset (UCI Repository)
 
 Hinweis:  
