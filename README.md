@@ -1,56 +1,78 @@
+# Data Analyst – Online Shoppers Purchasing Intention
+
+Projekt zur Analyse von Nutzerverhalten und Kaufabschluss-Vorhersage auf Basis des **Online Shoppers Purchasing Intention**-Datensatzes (UCI Machine Learning Repository). Enthalten sind ein KNIME-Workflow (Feature Engineering, XGBoost-Modell), eine Power-BI-Visualisierung sowie die zugehörige Berichtsdokumentation.
 
 ---
 
-## Prerequisites 
+## Dataset
 
-Um dieses Projekt auszuführen, nachzuvollziehen oder weiterzuentwickeln, müssen folgende Voraussetzungen erfüllt sein.
+| | |
+|---|---|
+| **Quelle** | UCI Machine Learning Repository |
+| **Titel** | Online Shoppers Purchasing Intention Dataset |
+| **Autoren** | Sakar, C.; Kastro, Yomi (2018) |
+| **DOI** | [10.24432/C5F88Q](https://doi.org/10.24432/C5F88Q) |
+
+### Download
+
+- **Direktlink (ZIP):**  
+  [Online Shoppers Purchasing Intention Dataset (ZIP)](http://archive.ics.uci.edu/static/public/468/online+shoppers+purchasing+intention+dataset.zip)
+
+- **UCI-Datensatzseite:**  
+  [archive.ics.uci.edu/dataset/468](https://archive.ics.uci.edu/dataset/468)
+
+Die Nutzung der Daten unterliegt den Bedingungen des UCI Machine Learning Repository.
+
+---
+
+## Voraussetzungen
 
 ### Software
-- KNIME Analytics Platform (Version ≥ 5.8.0)
-- Power BI Desktop
+
+- **KNIME Analytics Platform** (Version ≥ 5.8.0)
+- **Power BI Desktop**
 
 ### Datensatz
-- Zugriff auf das Originaldataset (UCI Repository)
 
-Hinweis:  
-Nach dem Import des KNIME-Workflows kann es notwendig sein, den Dateipfad im CSV Reader Node neu zu setzen.
+- Zugriff auf das Originaldataset (siehe Links oben).  
+  Nach dem Import des KNIME-Workflows ggf. den Dateipfad im CSV-Reader-Node auf die lokale Datei `online_shoppers_intention.csv` setzen.
 
-### Grundlagen
-- Grundlagen in Data Analytics & Feature Engineering
-- Klassifikationsmodelle (Tree-based Models)
+### Kenntnisse
+
+- Data Analytics & Feature Engineering
+- Klassifikationsmodelle (baum-basiert)
 - Modellbewertung (Accuracy, ROC, Cohen’s Kappa)
-- Verständnis für Klassenungleichgewicht
+- Umgang mit Klassenungleichgewicht
 
 ### Hardware (empfohlen)
-- Mindestens 4 GB RAM
-- Mindestens 2 GB freier Speicherplatz
-- CPU ausreichend
+
+- Mind. 4 GB RAM  
+- Mind. 2 GB freier Speicherplatz  
+- Ausreichende CPU
 
 ---
 
 ## Datensatz & Zielvariable
 
-- Beobachtungseinheit: User-Session
-- Ursprünglicher Umfang: ca. 12.000 Sessions
-- Zielvariable: `purschase_done` ∈ {Buy, NoBuy}
+| | |
+|---|---|
+| **Beobachtungseinheit** | User-Session |
+| **Umfang** | ca. 12.330 Sessions |
+| **Zielvariable** | `purschase_done` ∈ {Buy, NoBuy} |
 
-Hinweis:  
-Die Schreibweise `purschase_done` wird aus Konsistenzgründen im Projekt beibehalten.
+*Hinweis:* Die Schreibweise `purschase_done` wird aus Projektkonsistenz beibehalten.
 
 ---
 
 ## Feature Engineering
 
-Aus den Rohdaten werden robuste Session-Merkmale abgeleitet, unter anderem:
-- total_page_count
-- total_duration
-- avg_time_per_page
-- product_page_count
-- product_page_duration
-- product_share
-- VisitorType und Weekend
+Aus den Rohdaten werden u. a. folgende Session-Merkmale abgeleitet:
 
-Ziel ist eine vergleichbare Beschreibung von Sessions unabhängig von ihrer Länge.
+- `total_page_count`, `total_duration`, `avg_time_per_page`
+- `product_page_count`, `product_page_duration`, `product_share`
+- `VisitorType`, `Weekend`
+
+Ziel: vergleichbare Beschreibung von Sessions unabhängig von der Session-Länge.
 
 ---
 
@@ -58,66 +80,68 @@ Ziel ist eine vergleichbare Beschreibung von Sessions unabhängig von ihrer Län
 
 Der Workflow ist modular aufgebaut:
 
-1. Datenimport und Bereinigung
-2. Explorative Datenanalyse
-3. Feature Engineering
-4. Train/Test-Split
-5. Modelltraining (XGBoost)
-6. Prediction und Evaluation
-7. Export der Ergebnisse
+1. Datenimport und Bereinigung  
+2. Explorative Datenanalyse  
+3. Feature Engineering  
+4. Train/Test-Split  
+5. Modelltraining (XGBoost)  
+6. Prediction und Evaluation  
+7. Export der Ergebnisse  
 
 ---
 
 ## Modellierung
 
-- Modelltyp: XGBoost Tree Ensemble
-- Geeignet für tabellarische Daten und nichtlineare Zusammenhänge
+- **Modelltyp:** XGBoost (Tree Ensemble), geeignet für tabellarische Daten und nichtlineare Zusammenhänge  
 
-Zentrale Parameter:
-- Boosting Rounds: 350
-- Learning Rate: 0.05
-- Max Depth: 5
-- Subsample: 0.8
-- Seed: 42
+**Zentrale Parameter:**
+
+- Boosting Rounds: 350  
+- Learning Rate: 0.05  
+- Max Depth: 5  
+- Subsample: 0.8  
+- Seed: 42  
 
 ---
 
 ## Evaluation
 
-Bewertet wird das Modell anhand von:
-- Accuracy
-- Error Rate
-- Cohen’s Kappa
-- ROC-Kurve
+- Accuracy  
+- Error Rate  
+- Cohen’s Kappa  
+- ROC-Kurve  
 
 ---
 
 ## Outputs
 
-- Gesamtdatensatz.csv – finaler Feature-Datensatz
-- XGBoost_Modell.csv – Predictions und Wahrscheinlichkeiten
+- **Gesamtdatensatz.csv** – finaler Feature-Datensatz  
+- **XGBoost_Modell.csv** – Predictions und Wahrscheinlichkeiten  
 
-Diese Outputs dienen als Grundlage für die Power-BI-Visualisierung.
+Grundlage für die Power-BI-Visualisierung.
 
 ---
 
 ## Power BI
 
-Das Dashboard ermöglicht:
-- Analyse der Conversion Rate nach Segmenten
-- Interpretation relevanter Features
-- Bewertung der Modellvorhersagen
+Das Dashboard unterstützt:
+
+- Analyse der Conversion Rate nach Segmenten  
+- Interpretation relevanter Features  
+- Bewertung der Modellvorhersagen  
 
 ---
 
-## Reproduzierbarkeit & Weiterentwicklung
+## Reproduzierbarkeit
 
-**Ausführung**
-1. KNIME installieren
-2. project.knar importieren
-3. Workflow vollständig ausführen
+1. KNIME installieren  
+2. `project.knar` importieren  
+3. Dataset herunterladen (Link oben) und ggf. Pfad im Workflow anpassen  
+4. Workflow vollständig ausführen  
 
 ---
 
-## Lizenz
-Die Nutzung der Daten unterliegt den Bedingungen des UCI Machine Learning Repository.
+## Lizenz & Datenquelle
+
+Die Nutzung der Daten unterliegt den Bedingungen des [UCI Machine Learning Repository](https://archive.ics.uci.edu/).  
+Projektcode und Dokumentation siehe `LICENSE` in diesem Verzeichnis.
