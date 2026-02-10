@@ -4,6 +4,21 @@ Projekt zur Analyse von Nutzerverhalten und Kaufabschluss-Vorhersage auf Basis d
 
 ---
 
+## GitHub Pages (Präsentation)
+
+Die **Projektpräsentation** kann als Website gehostet werden:
+
+1. Repo auf GitHub pushen.
+2. **Settings → Pages** öffnen.
+3. Unter **Source**: „Deploy from a branch“ wählen.
+4. **Branch**: `main` (oder dein Standard-Branch), **Folder**: **/docs**.
+5. Speichern – nach kurzer Zeit ist die Präsentation unter  
+   `https://<username>.github.io/<repo-name>/` erreichbar.
+
+Die Inhalte für die Seite liegen im Ordner `docs/` (Standalone-Kopie der Presentation inkl. aller Bilder).
+
+---
+
 ## Dataset
 
 | | |
@@ -146,7 +161,7 @@ Im Ordner **`presentation/`** liegt eine Reveal.js-Präsentation mit dem komplet
 
 - **Datei:** `presentation/index.html`
 - **Struktur (6 Teile):**
-  1. **Präsentation des Projekts** – Ist-Analyse, User Storys, Hypothesen
+  1. **Präsentation des Projekts** – Ist-Analyse, User Stories, Hypothesen
   2. **Projektmanagement** – Organisation, Kanban, Gantt, Aufwände
   3. **KNIME** – Workflow aus `knime/project.knar` (Gesamt-SVG + Schritte 1–4 interaktiv)
   4. **Power BI** – Dashboard `power-bi/visualisation.pbix`, KPIs, Visualisierungen

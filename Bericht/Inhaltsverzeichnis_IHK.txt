@@ -7,17 +7,17 @@ Inhaltsverzeichnis
    • Erklärung der Daten und Bewertung der Datenqualität (mit detaillierter Ergebnisbeschreibung der EDA)
 
 2. Backlog und Projektziele ............................. 
-   • Sammlung von User Storys und Potenzialen.
+   • Sammlung von User Stories und Potenzialen.
    • Bewertung und Priorisierung nach Aufwand und Ertrag (Low Hanging Fruits)
    • Auswahl der erreichbaren Projektziele für den ersten Sprint.
 
 3. Projektausarbeitung .................................. 
-   • Formulierung von Hypothesen, die die Machbarkeit der Funktionen der User Storys untermauern.
-   • Zuordnung der Hypothesen zu User Storys und Potenzialen.
+   • Formulierung von Hypothesen, die die Machbarkeit der Funktionen der User Stories untermauern.
+   • Zuordnung der Hypothesen zu User Stories und Potenzialen.
 
 4. Projektmetriken ...................................... 
    • Wie lassen sich Fortschritt und Erfolg des Projektes und die Qualität der Analyse bzw. des Dashboards im Einsatz messen?
-   • Definitions of done für die Funktionen und die Mehrwerte der ausgewählten User Storys.
+   • Definitions of done für die Funktionen und die Mehrwerte der ausgewählten User Stories.
 
 5. Planung des ersten Sprints .......................... 
    • Formulierung der einzelnen Aufgabenpakte mit ihren berechneten oder geschätzten Aufwänden.
