@@ -76,6 +76,78 @@
     .reveal .outline-list.workflow-outline li.datenmodell-li { position: relative; padding-right: 240px; min-height: 120px; }
     .reveal .datenmodell-img { position: absolute; right: 0; top: 50%; transform: translateY(-50%); z-index: 10; max-height: 200px; width: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: block; }
 
+    /* Titelfolie: PowerPoint-Style Cover */
+    .reveal .title-slide {
+      background: linear-gradient(160deg, #0f172a 0%, #1e293b 45%, #0f172a 100%);
+      position: relative;
+    }
+    .reveal .title-slide::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    }
+    .reveal .title-slide .title-slide-inner {
+      max-width: 85%;
+      margin: 0 auto;
+      padding: 0.5em 0;
+    }
+    .reveal .title-slide h1 {
+      font-size: 2.2em;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 0.15em;
+      letter-spacing: -0.02em;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+    .reveal .title-slide h2 {
+      font-size: 1.25em;
+      font-weight: 600;
+      color: var(--accent-light);
+      border: none;
+      margin: 0 0 0.6em;
+      letter-spacing: 0.01em;
+    }
+    .reveal .title-slide .title-accent-bar {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      margin: 0 auto 0.7em;
+      border-radius: 2px;
+    }
+    .reveal .title-slide .title-theme {
+      font-size: 1em;
+      color: var(--text);
+      margin: 0 0 0.35em;
+      font-weight: 500;
+    }
+    .reveal .title-slide .title-authors {
+      font-size: 1.1em;
+      color: var(--accent-light);
+      font-weight: 600;
+      margin: 0.4em 0 0;
+      letter-spacing: 0.08em;
+    }
+    .reveal .title-slide .title-sep {
+      border: none;
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      width: 200px;
+      margin: 0.65em auto 0.5em;
+    }
+    .reveal .title-slide .title-footer {
+      margin-top: 0.5em;
+      padding-top: 0.5em;
+      font-size: 0.8em;
+      color: var(--muted);
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+      display: inline-block;
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+
     /* Ende-Slide mit GIF */
     .reveal .thanks-slide { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8em; }
     .reveal .thanks-slide h2 { margin-bottom: 0.2em; }
@@ -87,11 +159,16 @@
     <div class="slides">
 
       <!-- ========== TITEL ========== -->
-      <section>
-        <h1>Data Analyst</h1>
-        <h2>Online Shoppers Purchasing Intention</h2>
-        <p>Projektpräsentation – Einkaufsabschlüsse im Online-Shop</p>
-        <p class="small">Online-Zertifikatslehrgang Data Analyst (IHK)</p>
+      <section class="title-slide">
+        <div class="title-slide-inner">
+          <h1>Data Analyst</h1>
+          <h2>Online Shoppers Purchasing Intention</h2>
+          <div class="title-accent-bar"></div>
+          <p class="title-theme">Thema : Einkaufsabschlüsse im Online-Shop</p>
+          <p class="title-authors">Lewis – Alim – Dominik</p>
+          <hr class="title-sep">
+          <p class="title-footer">Online-Zertifikatslehrgang Data Analyst (IHK)</p>
+        </div>
       </section>
 
       <!-- ========== GLIEDERUNG ========== -->
