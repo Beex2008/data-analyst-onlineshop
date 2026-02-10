@@ -1,3 +1,8 @@
 \babel@toc {ngerman}{}\relax 
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Kanban-Board mit Projektaufgaben und Sprint-Reviews}}{18}{figure.caption.5}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Gantt-Diagramm mit Projektzeitplan}}{18}{figure.caption.6}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Machine Learning Canvas: Übersicht des ersten Sprints (Datenquellen, Aufgaben, Merkmale, Modell, Vorhersage, Evaluierung)}}{16}{figure.caption.7}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces ROC-Kurve des XGBoost-Modells (AUC=0{,}737)}}{18}{figure.caption.12}%
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Kanban-Board mit Projektaufgaben und Sprint-Reviews}}{21}{figure.caption.13}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Gantt-Diagramm mit Projektzeitplan}}{21}{figure.caption.14}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Ausschnitt aus KNIME-Workflow bzw. Ergebnisdarstellung (Daten aus CSV)}}{22}{figure.caption.15}%
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Dashboard-Auswertung: Käufer vs.\ Nicht-Käufer (Verweildauer, Seitenanzahl) und Conversion Rate nach Interaktionssegmenten.}}{24}{figure.caption.16}%
+\contentsline {figure}{\numberline {8.5}{\ignorespaces Sessions pro Prediction und bedingte Kaufquote.}}{25}{figure.caption.18}%

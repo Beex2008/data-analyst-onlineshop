@@ -1,0 +1,40 @@
+% 3. Projektausarbeitung (IHK-Struktur)
+\section{Projektausarbeitung}
+
+\subsection{Formulierung von Hypothesen, die die Machbarkeit der Funktionen der User Storys untermauern}
+Für jede User Story wurden Hypothesen formuliert, um die Machbarkeit der geplanten Maßnahmen anhand der vorhandenen Daten zu untermauern.
+
+\textbf{H1 -- Produktinteraktion beeinflusst Kaufabschluss positiv:} Nutzer, die mehr produktbezogene Seiten ansehen oder mehr Zeit darauf verbringen, schließen Käufe ab. (Var: Product-related und Revenue.) Diese Hypothese untermauert die Machbarkeit der User Story zur Kaufvorhersage und wurde in der EDA (Kapitel~1) sowie in der Modellierung (Kapitel~6) überprüft.
+
+\textbf{H2 -- Returning Visitors kaufen häufiger als neue Besucher.} Var: Visitor Type und Conversion-Rate (Anzahl Revenue=True / Anzahl der Sessions).
+
+\textbf{H3 -- Je länger sich der Besucher auf der Seite aufhält, desto wahrscheinlicher der Kaufabschluss.} Var: Product-related-Duration und Revenue.
+
+\textbf{H4 -- Besuche an Wochenenden führen zu höherer Kaufwahrscheinlichkeit.} Var: Conversion-Rate und Weekend.
+
+\textbf{H5 -- Returning Visitors haben eine höhere Conversion Rate als New Visitors.} Messvariable: \texttt{visitor\_type}, \texttt{revenue\_flag} (relevant für Marketingmanager).
+
+\subsection{Zuordnung der Hypothesen zu User Storys und Potenzialen}
+Diese Hypothesen verdeutlichen, welche Zusammenhänge im Nutzerverhalten untersucht werden sollen. Sie zeigen, welche Annahmen den jeweiligen Fragestellungen zugrunde liegen und welches Optimierungspotenzial besteht – und machen auf einen Blick erkennbar, welche Maßnahme sinnvoll ist und welche Kundengruppe betroffen ist.
+
+\begin{table}[H]
+\centering
+\caption{Zuordnung der User Storys zu Hypothesen und Potenzialen}
+\label{tab:hypothesen-zuordnung}
+\small
+\begin{tabular}{p{4.2cm}p{3.8cm}p{5.2cm}}
+\toprule
+\textbf{User Story} & \textbf{Potenzial} & \textbf{Hypothese} \\
+\midrule
+Als Online-Marketing-Manager: vorhersagen, ob eine Session zu einem Kauf führt, um Marketingmaßnahmen gezielt auszurichten. & Optimierung von Produktseiten, bessere Darstellung und Hervorhebung & Nutzer, die mehr auf produktbezogene Seiten interagieren oder mehr Zeit darauf verbringen, schließen Käufe ab. Var: Product-related und Revenue. \\
+\midrule
+Als Marketing Manager: zwischen neuen und wiederkehrenden Besuchern unterscheiden, gezielte Maßnahmen für Returning Visitors. & Stärkung von Kundenbindung, gezieltes Retargeting und Newsletter-Maßnahmen & Returning Visitors haben eine höhere Conversion Rate als neue Besucher. Var: Visitor Type und Conversion-Rate. \\
+\midrule
+Als Data Analyst: Muster im Nutzerverhalten erkennen, Einflussfaktoren des Kaufabschlusses identifizieren. & Verbesserung der Nutzerführung, Reduktion von Absprüngen, optimierte Seitenstruktur & Je länger sich der Besucher auf der Seite aufhält, desto wahrscheinlicher der Kaufabschluss. Var: Product-related-Duration und Revenue. \\
+\midrule
+Als Produktmanager: ML-Modell zur Prognose der Kaufwahrscheinlichkeit, Nutzer in Echtzeit klassifizieren. & Zeitlich optimierte Marketingkampagnen und Angebote am Wochenende & Besuche an Wochenenden führen zu höherer Kaufwahrscheinlichkeit. Var: Conversion-Rate und Weekend. \\
+\midrule
+Als Marketing Manager: vorhersagen, ob eine Session zu einem Kauf führt, Marketingmaßnahmen ausrichten. & Effizienter Einsatz des Marketingbudgets, Fokus auf profitable Zielgruppen & Returning Visitors haben eine höhere Conversion Rate als New Visitors. Messvariable: \texttt{visitor\_type}, \texttt{revenue\_flag}. \\
+\bottomrule
+\end{tabular}
+\end{table}

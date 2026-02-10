@@ -1,0 +1,27 @@
+% 7. Kurze Zusammenfassung der Ergebnisse (IHK-Struktur)
+\section{Kurze Zusammenfassung der Ergebnisse}
+
+\subsection{Beschreibung und Bewertung der Verifizierungen der Hypothesen}
+Hypothese H1 (Zusammenhang zwischen Produktinteraktion und Kaufabschluss) wurde in der EDA und in der Modellierung überprüft. Die berechneten Merkmale (\texttt{product\_share}, \texttt{product\_page\_count}, \texttt{product\_page\_duration}) erwiesen sich als aussagekräftig; das XGBoost-Modell nutzt sie im finalen Feature-Set. Die Verifizierung stützt die Machbarkeit der Kaufvorhersage und den Einsatz im Dashboard.
+
+\subsection{Überprüfung und Erläuterung der Erfüllung der Definitions of done}
+Für die priorisierte User Story wurden im Vorfeld klare Definitions of Done festgelegt. Diese dienen dazu zu prüfen, ob die Ziele des Sprints erreicht wurden.
+
+Die Definition of Done gilt als erfüllt, wenn:
+\begin{itemize}
+	\item relevante Verhaltensmerkmale identifiziert wurden,
+	\item ein nachvollziehbarer Zusammenhang zwischen Nutzerinteraktion und Kaufabschluss dargestellt werden kann,
+	\item die Ergebnisse visuell aufbereitet und verständlich interpretiert wurden.
+\end{itemize}
+Diese Kriterien wurden im Rahmen des Projekts erfüllt.
+
+Durch die Auswertung der Page Count und Page Duration konnte gezeigt werden, dass Käufer im Durchschnitt mehr Produktseiten aufrufen und sich länger auf diesen Seiten aufhalten als Nicht-Käufer. Die Visualisierungen machen diese Unterschiede sichtbar. Außerdem wurde überprüft, wie sich die Conversion Rate verändert, wenn Nutzer mehr Seiten aufrufen oder länger im Online-Shop bleiben. Dabei zeigt sich, dass Sitzungen mit hoher Interaktion eine deutlich höhere Kaufwahrscheinlichkeit aufweisen.
+
+Die Definition of Done ist somit erreicht, da Erkenntnisse gewonnen wurden, die als Grundlage für weitere Analysen dienen können. Zusätzlich: Datenaufbereitung und Spaltenumbenennung dokumentiert (Tabelle im Bericht), EDA mit Ergebnisbeschreibung durchgeführt, Modell (XGBoost) trainiert und evaluiert, Vorhersage implementiert, Anbindung an Power BI und Dashboard-Themen geplant bzw. umgesetzt, Projektmanagement (Kanban, Gantt) dokumentiert.
+
+\subsection{Ausblick auf die nächsten Aufgaben bzw. Projektziele}
+Im bisherigen Projektverlauf konnte ein erster Mehrwert im Zusammenhang mit dem Kaufverhalten der Nutzer identifiziert werden. Insbesondere die Kennzahlen Page Count und Page Duration haben gezeigt, dass sie gut geeignet sind, das Interesse der Kunden zu bewerten.
+
+In den nächsten Schritten soll geprüft werden, ob sich anhand dieser Kennzahlen zuverlässiger einschätzen lässt, ob ein Nutzer einen Kauf abschließt oder nicht. Ziel ist es, diese Erkenntnisse zu nutzen, um den Kaufprozess im Online-Shop weiter zu verbessern.
+
+Weitere Sprints können die Verfeinerung des Modells, erweiterte KPIs im Dashboard, Integration in operative Geschäftsprozesse sowie Nutzen für Marketing und Shop-Optimierung vertiefen. Grenzen des Modells und Risiken (z.\,B. Datenqualität, Überanpassung) sind zu beobachten; das Zielbild der datengetriebenen Kaufvorhersage bleibt die langfristige Orientierung.

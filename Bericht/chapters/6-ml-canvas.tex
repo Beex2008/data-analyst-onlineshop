@@ -1,0 +1,61 @@
+% 6. Technische Beschreibung des ersten Sprints (IHK-Struktur)
+\section{Technische Beschreibung des ersten Sprints anhand des Machine Learning Canvas}
+
+Das Machine Learning Canvas (siehe \cref{fig:ml-canvas}) fasst Aufgaben, Datenquellen, Merkmale, Modellierung, Vorhersage und Evaluierung des ersten Sprints übersichtlich zusammen.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{graphics/canvas.png}
+\caption{Machine Learning Canvas: Übersicht des ersten Sprints (Datenquellen, Aufgaben, Merkmale, Modell, Vorhersage, Evaluierung)}
+\label{fig:ml-canvas}
+\end{figure}
+
+\paragraph{Zeitliche Merkmale \& Hypothese H1.}
+Hypothese H1 (Produktinteraktion beeinflusst Kaufabschluss positiv): Nutzer, die mehr auf produktbezogene Seiten interagieren oder mehr Zeit darauf verbringen, schließen Käufe ab. Variablen: Product-related und Revenue.
+
+\textbf{Vorgehensweise:}
+\begin{enumerate}
+	\item \textbf{Datenexploration:} Verteilung von Product-related und Revenue prüfen.
+	\item \textbf{Analyse:} Korrelation und ggf.\ logistische Regression, um den Einfluss der Produktinteraktion auf die Kaufwahrscheinlichkeit zu messen.
+	\item \textbf{Interpretation:} Je höher der Count an angesehenen Produktseiten, desto größer die Wahrscheinlichkeit für einen Kauf.
+\end{enumerate}
+
+Für die Modellierung wurde bewusst ein begrenztes Feature-Set gewählt. Ziel war es nicht, möglichst viele Variablen zu verwenden, sondern diejenigen, die fachlich sinnvoll begründet und gut interpretierbar sind.
+
+Im finalen Feature-Set enthalten sind:
+\begin{itemize}
+	\item \texttt{product\_page\_count} als zentrales Hypothesenmerkmal
+	\item \texttt{product\_share} als Verstärkung des Produktfokus
+	\item \texttt{product\_page\_duration} als Maß für Engagement
+	\item \texttt{page\_value} als kaufnahe Metrik
+	\item \texttt{total\_duration} zur Abbildung der Sessionintensität
+	\item kodierte Kontextvariablen wie Monat, Besuchertyp und Wochenende
+\end{itemize}
+Durch diese Auswahl bleibt das Modell übersichtlich, erklärbar und reduziert das Risiko von Überanpassung.
+
+\paragraph{Modellierung.}
+Für die Modellierung wurde das XGBoost-Modell verwendet.
+
+\paragraph{Vorhersage.}
+Die Vorhersage wurde mithilfe des trainierten Modells durchgeführt (predict-Methode des Modells). Die Ausgabe kann in KNIME weiterverarbeitet und an Power BI übergeben werden (vgl. Kapitel~8: Datenübergabe von KNIME an Power BI).
+
+\paragraph{Modellbewertung.}
+Die Bewertung des Modells erfolgte u.\,a. anhand der ROC-Kurve (siehe \cref{fig:roc}). Das eingesetzte XGBoost-Modell erreicht eine AUC von 0{,}737 und damit eine solide Trennschärfe zwischen Kauf- und Nicht-Kauf-Sessions. Die Accuracy von 69\,\% ist aufgrund der unausgeglichenen Klassenverteilung nur eingeschränkt zur Bewertung der Modellqualität geeignet. Aussagekräftiger ist der Recall-Wert von etwa 62\,\%: Ein Großteil der tatsächlichen Kaufabschlüsse wird korrekt erkannt. Insgesamt liefert das Modell realistische und nachvollziehbare Ergebnisse, ohne Hinweise auf Data Leakage, und eignet sich als belastbare Grundlage für weiterführende Analysen.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{graphics/ROC_Curve_Result.png}
+\caption{ROC-Kurve des XGBoost-Modells (AUC=0{,}737)}
+\label{fig:roc}
+\end{figure}
+
+\subsection{Modellvergleich: Baseline vs.\ XGBoost}
+Zur Einordnung der Modellleistung wurde eine einfache Baseline definiert,
+die standardmäßig keinen Kaufabschluss prognostiziert.
+Diese Baseline dient als Referenz zur Bewertung des Mehrwerts des
+Machine-Learning-Modells.
+
+Im Vergleich zur Baseline zeigt das XGBoost-Modell eine deutlich bessere
+Trennfähigkeit, insbesondere gemessen an der ROC-AUC sowie dem Recall-Wert
+für Kaufabschlüsse. Dadurch wird deutlich, dass das ML-Modell über triviale
+Entscheidungsregeln hinausgeht und einen echten Mehrwert liefert.

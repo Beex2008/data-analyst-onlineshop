@@ -1,0 +1,28 @@
+% 1. Einleitung und Ist-Analyse (IHK-Struktur)
+\section{Einleitung und Ist-Analyse}
+
+\subsection{Ausgangssituation}
+In unserem Online-Shop sehen wir aktuell eine deutliche Lücke zwischen den Besucherzahlen und den tatsächlichen Abschlüssen. Viele Nutzer investieren Zeit in die Produktsuche und füllen ihren Warenkorb, brechen den Prozess dann aber ohne ersichtlichen Grund ab.
+
+Wir möchten herausfinden, welche Verhaltensmuster statistisch gesehen zu einem Kauf führen und wo wir potenzielle Käufer verlieren. Ziel ist es, eine Prognose darüber abzuleiten, unter welchen Bedingungen ein Kaufabschluss wahrscheinlicher ist.
+
+Dabei entsteht eine große Menge an Verhaltens- und Session-Daten. Diese Daten bilden die Grundlage, um Muster zu erkennen und erfolgreiche Käufe von Abbrüchen zu unterscheiden.
+
+Um die Analyse überschaubar zu halten, werden die Hypothesen auf ausgewählte Dimensionen beschränkt. Dazu gehören Besuchertyp (Visitor Type), die Anzahl der aufgerufenen Seiten (Page Count), technischer Kontext (Browser, Betriebssystem), Kaufabschluss (Revenue), die Verweildauer (Page Duration) sowie die Einkaufssituation (Monat, Wochenende, Special Days).
+
+\subsection{Erläuterung der Datenquellen und Prozesse}
+Die verwendeten Daten stammen aus dem aufgezeichneten Kundenverhalten einer Online-Shop-Website. Die Datenbasis bildet der Datensatz „Online Shoppers Purchasing Intention“ \cite{online_shoppers_purchasing_intention_dataset_468} aus dem UCI Machine Learning Repository. Dabei wurden Informationen zum Verhalten der Nutzer sowie zur jeweiligen Einkaufssituation erfasst.
+
+\begin{itemize}
+	\item \textbf{Anzahl Sessions:} 12.330
+	\item \textbf{Merkmale in 18 Bereichen:}
+	\begin{itemize}
+		\item Nutzerverhalten: Seitenanzahl, Verweildauer
+		\item Engagement: BounceRate, ExitRate, PageValue
+		\item Zeit \& Kontext: Monat, SpecialDay, Wochenende
+		\item Technik \& Segment: Browser, OS, VisitorType, TrafficType
+		\item Zielvariable: Revenue (Kaufabschluss ja/nein)
+	\end{itemize}
+\end{itemize}
+
+Die Spalten des ursprünglichen Datensatzes wurden vor der weiteren Verarbeitung umbenannt; die Struktur der Quelldaten aus \cite{online_shoppers_purchasing_intention_dataset_468} hat uns dabei als Grundlage für die Spaltenumbenennungen geholfen. Eine einheitliche Benennung nach dem Schema \texttt{snake\_case}\footnote{\url{https://developer.mozilla.org/de/docs/Glossary/Snake_case}} erleichtert die Lesbarkeit, die konsistente Weiterverarbeitung und die Referenzierung im Bericht sowie im Dashboard. Die vollständige Übersicht aller Umbenennungen ist im Anhang in Tabelle~\ref{tab:spaltenumbenennung} dargestellt.

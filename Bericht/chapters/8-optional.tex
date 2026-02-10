@@ -1,0 +1,141 @@
+% 8. Dashboard & Workflow
+\section{Dashboard \& Workflow}
+\label{sec:anhang}
+
+\subsection{Projektmanagement}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{graphics/Backlogs.png}
+\caption{Kanban-Board mit Projektaufgaben und Sprint-Reviews}
+\label{fig:backlogs}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{graphics/Gantt.png}
+\caption{Gantt-Diagramm mit Projektzeitplan}
+\label{fig:gantt}
+\end{figure}
+
+\subsection{Datenübergabe von KNIME an Power BI}
+Die aufbereiteten und modellierten Daten werden von KNIME exportiert und an Power BI übergeben (z.\,B. CSV-Export oder direkte Schnittstelle). So können die Business-KPIs und das Dashboard mit den gleichen Daten wie in der Analyse gefüllt werden. \cref{fig:knime-screenshot} zeigt einen Ausschnitt aus dem KNIME-Workflow bzw. der Ergebnisdarstellung.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{graphics/Screenshot_KNIME_Result.png}
+\caption{Ausschnitt aus KNIME-Workflow bzw. Ergebnisdarstellung (Daten aus CSV)}
+\label{fig:knime-screenshot}
+\end{figure}
+
+\subsection{Definition der Business-KPIs}
+Die Business-KPIs wurden in Absprache mit den Fachabteilungen definiert und umfassen u.\,a. kaufrelevante Metriken (Conversion, Revenue), Nutzerverhalten (Produktseiten, Verweildauer) sowie Modelloutput (Vorhersage Kauf ja/nein). Sie werden im Dashboard abgebildet.
+
+\subsection{Dashboard-Design und Visualisierungen}
+Das Dashboard in Power BI nutzt die definierten KPIs und Visualisierungen (z.\,B. Verteilungen, Zeitverläufe, Segmentierungen nach Besuchertyp oder Monat), um die Ergebnisse der Analyse und der Vorhersage für Fachabteilungen zugänglich zu machen.
+
+\subsection{Auswertung im Dashboard: Käufer vs.\ Nicht-Käufer und Interaktionssegmente}
+Die beiden ersten Darstellungen (vgl. \cref{fig:dashboard-kaeufer-conversion}) vergleichen Käufer und Nicht-Käufer hinsichtlich der Seitenaufrufe und der Verweildauer. Es zeigt sich eine starke Korrelation: Käufer rufen im Mittel doppelt so viele Seiten auf wie Nicht-Käufer und verweilen länger auf der Website. Konkret liegen Käufer (Revenue = True) bei durchschnittlich 34{,}22\,Minuten pro Seite, Nicht-Käufer (Revenue = False) bei 19{,}57\,Minuten. Bei der Seitenanzahl (product share bzw. Anzahl aufgerufener Seiten) rufen Käufer im Mittel 52 Seiten auf, Nicht-Käufer 31 – also durchschnittlich 21 Seiten mehr bei Käufern. Die Nutzeraktivität ist damit stark mit dem Kaufverhalten verknüpft.
+
+Die dritte Darstellung zeigt die Conversion Rate für unterschiedliche Interaktionssegmente. Ein Interaktionssegment setzt sich aus der Gesamtanzahl der pro Session aufgerufenen Seiten (Total Page Count) und der Gesamtdauer der Session (Total Duration) zusammen; beide Merkmale werden in die Kategorien hoch, mittel bzw. niedrig (Count) sowie lang, mittel bzw. kurz (Duration) unterteilt. Sehr aktive Nutzer weisen eine deutlich höhere Conversion Rate auf. Die höchste Rate weist das Segment \emph{Count: hoch, Duration: lang} mit 25{,}53\,\% auf, gefolgt von \emph{mittel/lang} (21{,}35\,\%) und \emph{mittel/mittel} (20{,}64\,\%). Hohe Seitenanzahl bei mittlerer Dauer liegt bei 18{,}08\,\%, niedrige Count-Segmente bei kurzer oder mittlerer Dauer bei 11{,}61\,\% bzw. 13{,}10\,\%. Die niedrigsten Conversion Rates finden sich bei \emph{hoch/kurz} (5{,}67\,\%), \emph{mittel/kurz} (4{,}88\,\%) und \emph{niedrig/lang} (4{,}00\,\%). Hohe Interaktion (viele Seiten, längere Verweildauer) geht mit deutlich höherer Conversion einher; kurze Sessions bei vielen Klicks bleiben vergleichsweise conversionschwach.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth,height=0.22\textheight,keepaspectratio]{graphics/avg_page_count.png}
+\caption{Ø Seitenanzahl (Käufer vs.\ Nicht-Käufer)}
+\end{subfigure}\hfill
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth,height=0.22\textheight,keepaspectratio]{graphics/avg_time_per_page.png}
+\caption{Ø Verweildauer pro Seite (Käufer vs.\ Nicht-Käufer)}
+\end{subfigure}\\[0.6em]
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth,height=0.28\textheight,keepaspectratio]{graphics/conversionrate_per_segment.png}
+\caption{Conversion Rate nach Interaktionssegmenten}
+\end{subfigure}
+\caption{Dashboard-Auswertung: Käufer vs.\ Nicht-Käufer (Verweildauer, Seitenanzahl) und Conversion Rate nach Interaktionssegmenten.}
+\label{fig:dashboard-kaeufer-conversion}
+\end{figure}
+
+\paragraph{Sessions pro Prediction und bedingte Kaufquote.}
+Abbildung~\ref{fig:dashboard-prediction} zeigt die Kombination aus Balken- und Liniendiagramm zur Achse „Prediction (Container)“ (0\,\%, 20\,\%, 40\,\%, 60\,\%, 80\,\%). Die dunkelgrauen Balken (linke Achse „Sessions“) geben die Session-Anzahl pro Prediction-Bereich an: 0--10\,\%: 830, 10--20\,\%: 335, 20--30\,\%: 473, 30--40\,\%: 500, 50--60\,\%: 331, 60--70\,\%: 202, 70--80\,\%: 143, 80--90\,\%: 19 Sessions; die Anzahl ist in den niedrigen Prediction-Bereichen am höchsten und sinkt mit steigendem Prediction-Score. Die rosa Linie (rechte Achse „Relative Kaufquote“, 0--40\,\%) zeigt die bedingte Kaufquote: 1{,}45\,\% (0--10\,\%), 6{,}27\,\%, 12{,}31\,\%, 12{,}90\,\%, 18{,}40\,\%, 23{,}93\,\%, 27{,}79\,\%, 34{,}65\,\%, Maximum 39{,}86\,\% im Bereich 80--90\,\%, danach Abfall auf 31{,}58\,\%. Es besteht ein klarer Zusammenhang: Wo die Session-Zahl hoch ist, ist die relative Kaufquote niedrig; in den hohen Prediction-Bereichen (70--90\,\%) sind weniger Sessions, aber die Kaufquote ist deutlich höher.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{graphics/session_per_prediction_container.png}
+\caption{Sessions pro Prediction und bedingte Kaufquote.}
+\label{fig:dashboard-prediction}
+\end{figure}
+
+\paragraph{Segment-Definitionen im Dashboard.}
+Die Interaktionssegmente im Dashboard basieren auf zwei Unterteilungen. Tabelle~\ref{tab:page-count-segment} definiert das \emph{Total Page Count}-Segment, Tabelle~\ref{tab:duration-segment} das \emph{Total Page Duration}-Segment.
+
+\begin{table}[H]
+\centering
+\caption{Total Page Count Segment}
+\label{tab:page-count-segment}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Kategorie} & \textbf{Total Page Count} & \textbf{Power BI Definition} \\
+\midrule
+Niedrig & 0--10 Seiten & \texttt{X <= 10} \\
+Mittel & 11--40 Seiten & \texttt{X <= 40} \\
+Hoch & > 40 Seiten & ansonsten \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Das Total Page Duration Segment wurde ebenfalls in drei Gruppen eingeteilt:
+
+\begin{table}[H]
+\centering
+\caption{Total Page Duration Segment}
+\label{tab:duration-segment}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Kategorie} & \textbf{Total Duration} & \textbf{Power BI Definition} \\
+\midrule
+Kurz & 0--10 Minuten & \texttt{X <= 10} \\
+Mittel & 11--25 Minuten & \texttt{X <= 25} \\
+Lang & > 25 Minuten & ansonsten \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Das finale Segment ist eine textuelle Kombination aus dem Page-Count-Segment und dem Duration-Segment. Das Säulendiagramm stützt die Annahme, dass eine höhere Interaktionsintensität mit einer erhöhten Wahrscheinlichkeit einer Kaufentscheidung verbunden ist.
+
+\subsection{Interpretation der Ergebnisse für Fachabteilungen}
+Die Ergebnisse (EDA, Modell, Vorhersage) wurden so aufbereitet, dass Fachabteilungen sie interpretieren können: z.\,B. welche Faktoren den Kaufabschluss begünstigen, wie sich Nutzerverhalten unterscheidet und wie das Modell im Einsatz genutzt werden kann.
+
+\subsection{Management-Mehrwert durch datenbasierte Entscheidungen}
+Der Management-Mehrwert entsteht durch datenbasierte Entscheidungen: Nutzung der Kaufvorhersage und des Dashboards für Marketing- und Shop-Optimierung, Priorisierung von Maßnahmen und bessere Ressourcensteuerung.
+
+\subsection{Handlungsempfehlungen auf Basis hoher Produktinteraktion}
+Die Analyse zeigt, dass eine hohe Produktinteraktion (gemessen über Product Page Count und Product Page Duration) mit einer höheren Conversion Rate einhergeht. Produktinteraktion erweist sich damit als positiver Kaufindikator. Nachfolgend werden Handlungsempfehlungen für den Online-Shop formuliert, die diese Erkenntnis aufgreifen.
+
+\paragraph{1) Produktinteraktion gezielt fördern.}
+Der Online-Shop sollte Nutzer aktiv dazu anregen, sich intensiver mit Produkten auseinanderzusetzen. Konkrete Maßnahmen: ähnliche Produkte anzeigen (z.\,B. „Das könnte Sie auch interessieren“), Zubehör oder passende Ergänzungen vorschlagen, erweiterte Produktinformationen anbieten („Mehr Details anzeigen“) statt Informationen zu reduzieren. Begründung: Hohe Interaktion erhöht die Kaufwahrscheinlichkeit und ist Teil des Entscheidungsprozesses.
+
+\paragraph{2) Produktseiten als Entscheidungsraum gestalten.}
+Produktseiten sind nicht nur Informationsträger, sondern der Ort, an dem die Kaufentscheidung entsteht. Empfohlen werden: ausführliche Produktbeschreibungen, mehrere Bilder bzw. Anwendungsbeispiele, klare Darstellung von Vorteilen und Nutzen sowie die sichtbare Integration von Bewertungen. Längere Verweildauer korreliert mit höherer Conversion; Information zahlt sich aus.
+
+\paragraph{3) Vergleichen erleichtern.}
+Da viele Produktseitenaufrufe mit hoher Conversion einhergehen, sollte das Vergleichen von Produkten erleichtert werden: z.\,B. Vergleichstabellen, Hervorhebung von Unterschieden zwischen Produkten, Kennzeichnungen wie „Unsere Empfehlung“ oder „Beliebteste Wahl“. Vergleich ist kein Abbruchsignal, sondern Teil einer aktiven Kaufentscheidung.
+
+\paragraph{4) Nutzer mit hoher Interaktion unterstützen.}
+Nutzer, die viele Produktseiten ansehen und viel Zeit investieren, sollten nicht gestört, sondern unterstützt werden. Konkret: auf aggressive Pop-ups verzichten, dezente Hilfsangebote anbieten (z.\,B. „Fragen zum Produkt?“), eine klare Navigation zurück zu bereits angesehenen Produkten bereitstellen. Diese Nutzergruppe weist die höchste Conversion Rate auf.
+
+\paragraph{5) Content-Qualität priorisieren.}
+Nicht ausschließlich auf „schnell zum Kauf“ optimieren, sondern auf qualitativ gute Entscheidungshilfen. Empfohlen werden: FAQ direkt auf der Produktseite, Hinweise zu Lieferung, Rückgabe und Garantie, kurze Entscheidungshilfen (z.\,B. „Für wen ist dieses Produkt geeignet?“). Die Daten zeigen: Kauf entsteht durch Auseinandersetzung mit dem Produkt, nicht durch Eile.
+
+\paragraph{6) Erfolgreiche Interaktionsmuster übertragen.}
+Seiten oder Produkte mit besonders hoher Interaktion und Conversion sollten gezielt analysiert und als Vorbild genutzt werden. Die Struktur, Inhalte und Darstellung dieser Seiten können auf andere Produkte übertragen und standardisiert werden. So wird sichtbar, was im Shop bereits funktioniert.
+
+\medskip
+\noindent\textbf{Zusammenfassung:} Die Analyse zeigt, dass hohe Produktinteraktion (viele Produktseiten, längere Verweildauer) mit der höchsten Conversion Rate einhergeht. Ziel des Online-Shops sollte es sein, diese Interaktion gezielt zu fördern und optimal zu unterstützen. Drei zentrale Empfehlungen: Produktinteraktion fördern statt reduzieren; Produktseiten als Entscheidungshelfer ausbauen; Vergleich und Information bewusst ermöglichen.
+
+\subsection{Zielbild und Soll-Zustand (Ergänzung)}
+Zielbild: datengetriebene Kaufvorhersage im Einsatz. Das Modell soll in Geschäftsprozesse integriert werden (z.\,B. Personalisierung, Kampagnensteuerung). Nutzen für Marketing und Shop-Optimierung sowie Grenzen des Modells und Risiken sind bei der weiteren Einführung zu berücksichtigen.

@@ -1,5 +1,5 @@
 % 'draft' mode can be used to speed up compilation
-\documentclass[twoside,final]{Phenikaa-report}
+\documentclass[oneside,final]{Phenikaa-report}
 \usepackage{codespace}
 
 % Draft watermark
@@ -16,7 +16,7 @@
 \usepackage{enumitem}
 
 % Graphics
-\usepackage{caption,float}
+\usepackage{caption,float,subcaption}
 
 % Add options for figures, like max width, framing, etc.
 \usepackage[export]{adjustbox}
@@ -59,6 +59,16 @@
 \AtBeginDocument{\renewcommand{\figurename}{Abbildung}}
 \AtBeginDocument{\renewcommand{\refname}{Literaturverzeichnis}}
 
+% Literaturverzeichnis nur anzeigen, wenn im Text zitiert wurde
+\makeatletter
+\let\@savedcite\cite
+\renewcommand{\cite}[2][]{\gdef\citationused{}\@savedcite[#1]{#2}}
+\let\@savedcitet\citet
+\renewcommand{\citet}[2][]{\gdef\citationused{}\@savedcitet[#1]{#2}}
+\let\@savedcitep\citep
+\renewcommand{\citep}[2][]{\gdef\citationused{}\@savedcitep[#1]{#2}}
+\makeatother
+
 \begin{document}
 \coverpage%
 
@@ -83,19 +93,24 @@
 \newpage
 \listoftables
 \newpage
-\lstlistoflistings{}
+% Hauptinhalt - IHK-Gliederung (Inhaltsverzeichnis)
+\include{chapters/1-einleitung-ist}
+\include{chapters/2-backlog}
+\include{chapters/3-projektausarbeitung}
+\include{chapters/4-projektmetriken}
+\include{chapters/5-sprint-planung}
+\include{chapters/6-ml-canvas}
+\include{chapters/7-zusammenfassung}
+\include{chapters/8-optional}
 
-% Hauptinhalt - Einbindung der Kapitel
-\include{chapters/einleitung}
-\include{chapters/projektvorbereitung}
-\include{chapters/ist-analyse}
-\include{chapters/visualisierung}
-\include{chapters/soll-zustand}
-\include{chapters/ausblick}
+% Anhang (ohne Nummerierung)
 \include{chapters/anhang}
 
-\bibliographystyle{plain}
-\bibliography{refs/example.bib}
-\nocite{*}
+\makeatletter
+\@ifundefined{citationused}{}{%
+  \bibliographystyle{plain}%
+  \bibliography{refs/example.bib}%
+}
+\makeatother
 
 \end{document}

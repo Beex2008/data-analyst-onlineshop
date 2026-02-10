@@ -163,10 +163,9 @@
     \vspace{2.5cm}
     \begin{flushleft}
       \begin{minipage}{0.8\textwidth}
-        \textbf{Herr Alim Atca, MSc.} \hfill Autor \\
+        \textbf{Herr Alim Atca, B.A.} \hfill Autor \\
         \textbf{Herr Lewis Koua, MSc.} \hfill Autor \\
-        \textbf{Herr Dominik Dietrich, MSc.} \hfill Autor \\
-        \textbf{Frau Maddalena Zaffiro} \hfill Prüferin \\
+        \textbf{Herr Dominik Dietrich} \hfill Autor \\
       \end{minipage}
     \end{flushleft}
     
