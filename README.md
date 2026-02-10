@@ -15,16 +15,16 @@ Um dieses Projekt auszuführen, nachzuvollziehen oder weiterzuentwickeln, müsse
 Hinweis:  
 Nach dem Import des KNIME-Workflows kann es notwendig sein, den Dateipfad im CSV Reader Node neu zu setzen.
 
-### Fachliche Grundlagen
+### Grundlagen
 - Grundlagen in Data Analytics & Feature Engineering
 - Klassifikationsmodelle (Tree-based Models)
 - Modellbewertung (Accuracy, ROC, Cohen’s Kappa)
 - Verständnis für Klassenungleichgewicht
 
 ### Hardware (empfohlen)
-- Mindestens 8 GB RAM
-- Mindestens 1 GB freier Speicherplatz
-- Standard-CPU ausreichend
+- Mindestens 4 GB RAM
+- Mindestens 2 GB freier Speicherplatz
+- CPU ausreichend
 
 ---
 
@@ -48,7 +48,7 @@ Aus den Rohdaten werden robuste Session-Merkmale abgeleitet, unter anderem:
 - product_page_count
 - product_page_duration
 - product_share
-- One-Hot-Encoding für Monat, VisitorType und Weekend
+- VisitorType und Weekend
 
 Ziel ist eine vergleichbare Beschreibung von Sessions unabhängig von ihrer Länge.
 
@@ -90,16 +90,12 @@ Bewertet wird das Modell anhand von:
 - Cohen’s Kappa
 - ROC-Kurve
 
-Hinweis:  
-Aufgrund des Klassenungleichgewichts ist Cohen’s Kappa besonders aussagekräftig.
-
 ---
 
 ## Outputs
 
 - Gesamtdatensatz.csv – finaler Feature-Datensatz
 - XGBoost_Modell.csv – Predictions und Wahrscheinlichkeiten
-- WF-Protokoll.csv – Modellmetriken
 
 Diese Outputs dienen als Grundlage für die Power-BI-Visualisierung.
 
@@ -120,12 +116,6 @@ Das Dashboard ermöglicht:
 1. KNIME installieren
 2. project.knar importieren
 3. Workflow vollständig ausführen
-
-**Mögliche Erweiterungen**
-- Modellvergleich (z. B. Logistic Regression, Random Forest)
-- Umgang mit Klassenungleichgewicht (SMOTE, Weights)
-- Feature Importance & Explainability (SHAP)
-- Deployment-Vorbereitung
 
 ---
 
