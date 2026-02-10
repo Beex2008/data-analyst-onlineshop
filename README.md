@@ -44,12 +44,6 @@ Die Nutzung der Daten unterliegt den Bedingungen des UCI Machine Learning Reposi
 - Modellbewertung (Accuracy, ROC, Cohen’s Kappa)
 - Umgang mit Klassenungleichgewicht
 
-### Hardware (empfohlen)
-
-- Mind. 4 GB RAM  
-- Mind. 2 GB freier Speicherplatz  
-- Ausreichende CPU
-
 ---
 
 ## Datensatz & Zielvariable
