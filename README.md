@@ -140,6 +140,24 @@ Der Output von Power BI ist ein **Dashboard**. Es unterstützt:
 
 ---
 
+## Präsentation (Reveal.js)
+
+Im Ordner **`presentation/`** liegt eine Reveal.js-Präsentation mit dem kompletten Projekt-Workflow:
+
+- **Datei:** `presentation/index.html`
+- **Struktur (6 Teile):**
+  1. **Präsentation des Projekts** – Ist-Analyse, User Storys, Hypothesen
+  2. **Projektmanagement** – Organisation, Kanban, Gantt, Aufwände
+  3. **KNIME** – Workflow aus `knime/project.knar` (Gesamt-SVG + Schritte 1–4 interaktiv)
+  4. **Power BI** – Dashboard `power-bi/visualisation.pbix`, KPIs, Visualisierungen
+  5. **Ergebnisse** – Evaluation, ROC, ML Canvas, Outputs
+  6. **Maßnahmen** – Handlungsempfehlungen (Produktinteraktion, Content, Zielbild)
+- **Design:** Eigenes Styling (DM Sans, JetBrains Mono, Akzentfarbe), Part-Divider-Folien für jeden der 6 Teile, Fragments für schrittweise Einblendung.
+
+**Starten:** `index.html` in einem Browser öffnen (z. B. per Doppelklick oder über einen lokalen Webserver). Reveal.js wird per CDN geladen, Internetverbindung empfohlen.
+
+---
+
 ## Lizenz & Datenquelle
 
 Die Nutzung der Daten unterliegt den Bedingungen des [UCI Machine Learning Repository](https://archive.ics.uci.edu/).  
