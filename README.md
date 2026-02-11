@@ -142,6 +142,8 @@ Der Output von Power BI ist ein **Dashboard**. Es unterstützt:
 
 ## Präsentation (Reveal.js)
 
+**Live:** [beex2008.github.io/data-analyst-onlineshop](https://beex2008.github.io/data-analyst-onlineshop/)
+
 Im Ordner **`presentation/`** liegt eine Reveal.js-Präsentation mit dem kompletten Projekt-Workflow:
 
 - **Datei:** `presentation/index.html`
